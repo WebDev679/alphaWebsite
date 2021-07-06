@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpha Cluehunt</title>
+    <style>
+                div{
+            text-align: center;
+            position: absolute;
+            width: 300px;
+            background-color: rgb(255, 253, 253, 0.5);
+            padding: 20px;
+            border-radius: 20px;
+            max-width: 100%;
+        }
+        #code{
+            height: 30px;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body onLoad="setPosition()" onResize="setPosition()">
+    
+    <div id="form">
+        <h1>Congratulation! You have finished the cluehunt</h1>
+</div>
+</body>
+<script>
+    function setPosition(){
+        var div = document.getElementById("form");
+        var x = window.innerWidth/2 -175;
+        var y = window.innerHeight/2 -70;
+        div.style.postion = "absolute";
+        div.style.left = x + "px";
+        div.style.top = y + "px";
+    }
+</script>
+</html>
