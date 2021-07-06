@@ -50,12 +50,12 @@ def home(request):
                 return render(request, 'cluehunt/home.html', {'error': 'You have already finished the cluehunt.'})
             else: 
                 auth.login(request, user)
+                request.session['hint'] = False
+                request.session['skip'] = False
                 return redirect('cluehunt', school.level)
         else: 
             return render(request, 'cluehunt/home.html', {'error': 'Wrong credentials. Please try again.'})
     else: 
-        request.session['hint'] = False
-        request.session['skip'] = False
         return render(request, 'cluehunt/home.html')
 
 def finish(request): 
