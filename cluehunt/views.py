@@ -7,7 +7,7 @@ from datetime import datetime
 # Create your views here.
 @login_required
 def puzzles(request, level):
-    if level == 5: 
+    if level == 10: 
         return redirect('finish')
     else:
         request.session['level'] = level
@@ -46,7 +46,7 @@ def home(request):
         user = auth.authenticate(username=name, password=password)
         school = School.objects.get(user=user)
         if user is not None: 
-            if school.level == 5: 
+            if school.level == 10: 
                 return render(request, 'cluehunt/home.html', {'error': 'You have already finished the cluehunt.'})
             else: 
                 auth.login(request, user)
@@ -61,7 +61,7 @@ def home(request):
 def finish(request): 
     if request.method == 'GET':
         school = School.objects.get(user=request.user)
-        if school.level == 5: 
+        if school.level == 10: 
             school.submission_time = datetime.now()
             school.save()
             auth.logout(request)
