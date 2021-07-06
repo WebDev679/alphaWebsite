@@ -8,6 +8,7 @@ class Puzzle(models.Model):
     level = models.IntegerField(blank=True, null=True, default=0)
     hints = models.TextField(blank=True, null=True, default='--')
     hintNumber = models.IntegerField(blank=True, null=True, default=1)
+    title = models.CharField(blank=True, null=True, default='-', max_length=300)
     
     def __str__(self):
         return str(self.level)

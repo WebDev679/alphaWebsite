@@ -16,24 +16,24 @@ def puzzles(request, level):
         error_message = 'The code entered is wrong. Please try again'
     if request.method == 'POST':
         code = request.POST['code']
-        if puzzle.code == code:
+        if puzzle.code.lower() == code.lower():
             school.level = level+1
             school.save()
             return redirect('cluehunt', level+1)
         else:
-            return render(request, 'cluehunt/puzzle.html', {'error': error_message, 'resources': puzzle.resources, 'level': level, 'hintsLeft': school.hintsLeft, 'skipsLeft': school.skipsLeft, 'hintNumber': puzzle.hintNumber})
+            return render(request, 'cluehunt/puzzle.html', {'error': error_message, 'resources': puzzle.resources, 'level': level, 'hintsLeft': school.hintsLeft, 'skipsLeft': school.skipsLeft, 'hintNumber': puzzle.hintNumber, 'title': school.title})
     else: 
         if level == school.level:
             if request.session['hint']:
                 request.session['hint'] = False
-                return render(request, 'cluehunt/puzzle.html', {'resources': puzzle.resources, 'error': False, 'level': level, 'hintsLeft': school.hintsLeft, 'skipsLeft': school.skipsLeft, 'hints': puzzle.hints, 'hintNumber': puzzle.hintNumber})
+                return render(request, 'cluehunt/puzzle.html', {'resources': puzzle.resources, 'error': False, 'level': level, 'hintsLeft': school.hintsLeft, 'skipsLeft': school.skipsLeft, 'hints': puzzle.hints, 'hintNumber': puzzle.hintNumber, 'title': school.title})
             else: 
                 if request.session['skip']:
                     request.session['skip'] = False
                     school.level = school.level +1
                     school.save()
                     return redirect('cluehunt', school.level)
-            return render(request, 'cluehunt/puzzle.html', {'resources': puzzle.resources, 'error': False, 'level': level, 'hintsLeft': school.hintsLeft, 'skipsLeft': school.skipsLeft, 'hintNumber': puzzle.hintNumber})
+            return render(request, 'cluehunt/puzzle.html', {'resources': puzzle.resources, 'error': False, 'level': level, 'hintsLeft': school.hintsLeft, 'skipsLeft': school.skipsLeft, 'hintNumber': puzzle.hintNumber, 'title': school.title})
         else:
             auth.logout(request)
             return redirect('home')
