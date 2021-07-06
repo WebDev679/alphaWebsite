@@ -25,6 +25,7 @@
 <body onLoad="setPosition()" onResize="setPosition()">
     <h1>Alpha Cluehunt</h1>
     <div id="form">
+        <h3>Sign In</h3>
 <form action="{% url 'home' %}" method="POST">
     {% csrf_token %}
 <input type="text" class="code" placeholder="School Name" name="schoolName" id = "code" size="30">
