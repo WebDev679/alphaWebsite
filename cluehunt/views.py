@@ -21,7 +21,7 @@ def puzzles(request, level):
             school.save()
             return redirect('cluehunt', level+1)
         else:
-            return render(request, 'cluehunt/puzzle.html', {'error': error_message, 'resources': puzzle.resources, 'level': level, 'hintsLeft': school.hintsLeft, 'skipsLeft': school.skipsLeft, 'hintNumber': puzzle.hintNumber, 'title': puzzle.title})
+            return render(request, 'cluehunt/puzzle.html', {'error': error_message, 'resources': puzzle.resources, 'level': level, 'hintsLeft': school.hintsLeft, 'skipsLeft': school.skipsLeft, 'hintNumber': puzzle.hintNumber, 'title': puzzle.title, 'hints': puzzle.hints})
     else: 
         if level == school.level:
             if request.session['hint']:
@@ -33,7 +33,7 @@ def puzzles(request, level):
                     school.level = school.level +1
                     school.save()
                     return redirect('cluehunt', school.level)
-            return render(request, 'cluehunt/puzzle.html', {'resources': puzzle.resources, 'error': False, 'level': level, 'hintsLeft': school.hintsLeft, 'skipsLeft': school.skipsLeft, 'hintNumber': puzzle.hintNumber, 'title': puzzle.title})
+            return render(request, 'cluehunt/puzzle.html', {'resources': puzzle.resources, 'error': False, 'level': level, 'hintsLeft': school.hintsLeft, 'skipsLeft': school.skipsLeft, 'hintNumber': puzzle.hintNumber, 'title': puzzle.title, 'hints': puzzle.hints})
         else:
             auth.logout(request)
             return redirect('home')
@@ -90,5 +90,11 @@ def skip(request):
         request.session['skip'] = True
         school.save()
         return redirect('cluehunt', school.level)
+    else: 
+        pass
+
+def blackHole(request):
+    if request.method == 'GET':
+        return render(request, 'cluehunt/blackHole.html')
     else: 
         pass

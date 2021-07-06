@@ -24,4 +24,5 @@ urlpatterns = [
     path('finish/', views.finish, name='finish'), 
     path('skip/', views.skip, name='skip'),
     path('hint/', views.hints, name='hint'),
+    path('7/', views.blackHole, name='blackHole'),
 ]

@@ -6,7 +6,7 @@
     <title>Alpha Cluehunt</title>
     <style>
                 div{
-            
+            text-align: center;
             position: absolute;
             width: 300px;
             background-color: rgb(255, 253, 253, 0.5);
@@ -26,6 +26,10 @@
         #hint{
             visibility:hidden;
         }
+        #text{
+            text-align:center; 
+            padding: 20px;
+        }
     </style>
 </head>
 <body onLoad="setPosition()" onResize="setPosition()">
@@ -44,9 +48,12 @@
         <p><a href="{% url 'skip' %}">Yes</a> or <a href="" onclick="cancelSkip()">No</a></p>
         {% endif %}
     </div>
+    {% if level == 4 %}
+    {% else %}
     {% if hintNumber == 0 %}
     {% else %}
     <button onclick="showHint()">Show hint</button>
+    {% endif %}
     {% endif %}
     <div id="hint">
         {% if hintsLeft == 0 %}
@@ -57,7 +64,7 @@
         {% endif %}
     </div>
     <div id = 'hintsShown'>
-        {% if hints %}
+        {% if hintNumber == 0%}
         <p>{{hints}}</p>
         {% endif %}
     </div>
@@ -73,7 +80,7 @@
 <p style="color:red">{{error}}</p>
 {% else %}
 {% endif %}
-<pre>{{resources}}</pre>
+<pre id='text'>{{resources}}</pre>
 </div>
 </body>
 <script>
