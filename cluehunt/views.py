@@ -18,6 +18,7 @@ def puzzles(request, level):
         code = request.POST['code']
         if puzzle.code.lower() == code.lower():
             school.level = level+1
+            school.submission_time = datetime.now()
             school.save()
             return redirect('cluehunt', level+1)
         else:
