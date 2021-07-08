@@ -30,6 +30,13 @@
             text-align:center; 
             padding: 20px;
         }
+        #countdown{
+            height: 400px;
+            width: 400px;
+            position: absolute;
+            top: 30px;
+            left: 10px;
+        }
     </style>
 </head>
 <body onLoad="setPosition()" onResize="setPosition()">
@@ -68,6 +75,8 @@
         <p>{{hints}}</p>
         {% endif %}
     </div>
+    <script src="https://cdn.logwork.com/widget/countdown.js"></script>
+<div id="countdown"><a href="https://logwork.com/countdown-po85" class="countdown-timer" data-timezone="Asia/Kolkata" data-date="2021-07-10 20:00">Time left for the clue hunt</a></div>
     <div id="form">
 <form action="{% url 'cluehunt' level %}" method="POST">
     {% csrf_token %}
@@ -86,6 +95,7 @@
 <script>
     function setPosition(){
         var div = document.getElementById("form");
+        var countdown = document.getElementById("countdown")
         var x = window.innerWidth/2 -175;
         var y = window.innerHeight/2 -70;
         div.style.postion = "absolute";
