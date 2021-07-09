@@ -105,12 +105,24 @@ def upload(request):
     schools = {'GEMSModernAcademy': 'alphaCluehunta', 'HopetownGirlsSchool': 'alphaCluehuntb', 'MayoCollegeGirlsSchool': 'alphaCluehuntc', 'ShivNadarSchool': 'alphaCluehuntd', 'TheDalyCollege': 'alphaCluehunte', 'TheDoonSchool': 'alphaCluehuntf', 'TheLawrenceSchool':'alphaCluehuntg', 'TheScindiaSchool': 'alphaCluehunth', 'TheShriRamSchool':'alphaCluehunti', 'WelhamBoysSchool': 'alphaCluehuntj'}
     for name, password in schools.items(): 
         puzzle = Puzzle()
-        puzzle.code = "PET"
-        puzzle.resources = "https://soundcloud.com/soham-agarwal-443030240/level-5/s-4AxQkc5clpt"
-        puzzle.hints = ".- -.-. .-. --- -. -.-- -- / --- ..-. / -- . -.. .. -.-. .- .-.. / .. -- .- --. .. -. --. / .--. .-. --- -.-. . -.. ..- .-. . / .. -. ...- --- .-.. ...- .. -. --. / .- -. - .. .--. .- .-. - .. -.-. .-.. . ... .-.-.-"
+        puzzle.code = "5"
+        puzzle.resources = """"Body with a skeleton of cords it may be,
+ Yet, within, no red of mortal flows,
+ Neither a heart nor a brain at its seat,
+ Its power house, a mark of Zeus's Vajra shows,
+ The power house, in Volta's coinage, found X,
+ In its path unity number's two linear oppositions meets,
+Your work is simple, my friend, 
+Find the A this skeleton sheaths"
+
+
+
+Your final answer is a number.
+"""
+        puzzle.hints = "Think of the poem as describing an electric circuit and its components."
         puzzle.hintNumber = 1
-        puzzle.title = "Audio Decipher"
-        puzzle.level = 5
+        puzzle.title = "A Poem For Circuitus"
+        puzzle.level = 6
         puzzle.user = auth.authenticate(username=name, password=password)
         puzzle.save()
     return redirect('home')
