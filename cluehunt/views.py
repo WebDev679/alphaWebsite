@@ -102,7 +102,7 @@ def blackHole(request):
         pass
 
 def upload(request):
-    schools = {'GEMSModernSchool': 'alphaCluehunta', 'HopetownGirlsSchool': 'alphaCluehuntb', 'MayoCollegeGirlsSchool': 'alphaCluehuntc', 'ShivNadarSchool': 'alphaCluehuntd', 'TheDalyCollege': 'alphaCluehunte', 'TheDoonSchool': 'alphaCluehuntf', 'TheLawrenceSchool':'alphaCluehuntg', 'TheScindiaSchool': 'alphaCluehunth', 'TheShriRamSchool':'alphaCluehunti', 'WelhamBoysSchool': 'alphaCluehuntj'}
+    schools = {'GEMSModernAcademy': 'alphaCluehunta', 'HopetownGirlsSchool': 'alphaCluehuntb', 'MayoCollegeGirlsSchool': 'alphaCluehuntc', 'ShivNadarSchool': 'alphaCluehuntd', 'TheDalyCollege': 'alphaCluehunte', 'TheDoonSchool': 'alphaCluehuntf', 'TheLawrenceSchool':'alphaCluehuntg', 'TheScindiaSchool': 'alphaCluehunth', 'TheShriRamSchool':'alphaCluehunti', 'WelhamBoysSchool': 'alphaCluehuntj'}
     for name, password in schools.items(): 
         puzzle = Puzzle()
         puzzle.code = "Caltech"

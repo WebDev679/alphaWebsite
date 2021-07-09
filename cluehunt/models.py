@@ -12,7 +12,7 @@ class Puzzle(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     
     def __str__(self):
-        return str(self.level)
+        return str(self.level) + str(self.user)
 
 class School(models.Model):
     name = models.CharField(null=True, blank=True, max_length=500)
