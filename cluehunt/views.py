@@ -105,24 +105,27 @@ def upload(request):
     schools = {'GEMSModernAcademy': 'alphaCluehunta', 'HopetownGirlsSchool': 'alphaCluehuntb', 'MayoCollegeGirlsSchool': 'alphaCluehuntc', 'ShivNadarSchool': 'alphaCluehuntd', 'TheDalyCollege': 'alphaCluehunte', 'TheDoonSchool': 'alphaCluehuntf', 'TheLawrenceSchool':'alphaCluehuntg', 'TheScindiaSchool': 'alphaCluehunth', 'TheShriRamSchool':'alphaCluehunti', 'WelhamBoysSchool': 'alphaCluehuntj'}
     for name, password in schools.items(): 
         puzzle = Puzzle()
-        puzzle.code = "5"
-        puzzle.resources = """"Body with a skeleton of cords it may be,
- Yet, within, no red of mortal flows,
- Neither a heart nor a brain at its seat,
- Its power house, a mark of Zeus's Vajra shows,
- The power house, in Volta's coinage, found X,
- In its path unity number's two linear oppositions meets,
-Your work is simple, my friend, 
-Find the A this skeleton sheaths"
+        puzzle.code = "61 W"
+        puzzle.resources = """Part 1-:
+You wandered a lonely forest and came upon a cave perchance. Who knows what lies behind, 
+a treasure trove perhaps? The door to the cave lies before you now; the chance of setting a foot in, 
+staring at you. By analyzing the exact expanse of the image on the webpage below,                              
+you shall make that betide what you desire most - to gain access to the cave.
+
+https://clueconundrum.de/7
 
 
 
-Your final answer is a number.
-"""
-        puzzle.hints = "Think of the poem as describing an electric circuit and its components."
+Part 2 -:
+Now, a change of perception is required; you must add a 0 upfront to read it for the 24-hour clock. Then 
+you must find the meridian along which it is this hour of the day, when it strikes noon along the prime
+of time.
+
+Your final answer is a number. Ignore the unit but include the symbol of the direction in your answer."""
+        puzzle.hints = "Ctrl-Shift-I and longitude"
         puzzle.hintNumber = 1
-        puzzle.title = "A Poem For Circuitus"
-        puzzle.level = 6
+        puzzle.title = "Black Hole"
+        puzzle.level = 7
         puzzle.user = auth.authenticate(username=name, password=password)
         puzzle.save()
     return redirect('home')
