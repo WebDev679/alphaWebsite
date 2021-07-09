@@ -105,12 +105,12 @@ def upload(request):
     schools = {'GEMSModernAcademy': 'alphaCluehunta', 'HopetownGirlsSchool': 'alphaCluehuntb', 'MayoCollegeGirlsSchool': 'alphaCluehuntc', 'ShivNadarSchool': 'alphaCluehuntd', 'TheDalyCollege': 'alphaCluehunte', 'TheDoonSchool': 'alphaCluehuntf', 'TheLawrenceSchool':'alphaCluehuntg', 'TheScindiaSchool': 'alphaCluehunth', 'TheShriRamSchool':'alphaCluehunti', 'WelhamBoysSchool': 'alphaCluehuntj'}
     for name, password in schools.items(): 
         puzzle = Puzzle()
-        puzzle.code = "PRISM"
-        puzzle.resources = "https://drive.google.com/file/d/1_V8-rEwIxJiq-miRQBVnlvYywqaXEQJT/view?usp=sharing"
-        puzzle.hints = "The left hand side are acronyms that name a set. The right hand side are acronyms that are components of the set. There is one component missing from each set. The missing components form a word which is the answer to the puzzle."
+        puzzle.code = "Eureka! It's tradition"
+        puzzle.resources = "https://drive.google.com/file/d/1GqU4pXHxLApqETCQjXAwamdlC2xh-0yH/view?usp=sharing"
+        puzzle.hints = "Capitalisation corresponds to elements"
         puzzle.hintNumber = 1
-        puzzle.title = "Sets"
-        puzzle.level = 8
+        puzzle.title = "Deceptive Visuals"
+        puzzle.level = 9
         puzzle.user = auth.authenticate(username=name, password=password)
         puzzle.save()
     return redirect('home')
