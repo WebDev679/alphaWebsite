@@ -11,7 +11,7 @@ def puzzles(request, level):
         return redirect('finish')
     else:
         request.session['level'] = level
-        puzzle = Puzzle.objects.get(level=level)
+        puzzle = Puzzle.objects.get(level=level, user=request.user)
         school = School.objects.get(user=request.user)
         error_message = 'The code entered is wrong. Please try again'
     if request.method == 'POST':
@@ -73,7 +73,7 @@ def finish(request):
 
 def hints(request):
     school = School.objects.get(user=request.user)
-    puzzle = Puzzle.objects.get(level=request.session['level'])
+    puzzle = Puzzle.objects.get(level=request.session['level'], user=request.user)
     if request.method == 'GET':
         school.hintsLeft = school.hintsLeft-1
         request.session['hint'] = True
@@ -86,14 +86,11 @@ def hints(request):
 
 def skip(request):
     school = School.objects.get(user=request.user)
-    puzzle = Puzzle.objects.get(level=school.level)
+    puzzle = Puzzle.objects.get(level=school.level, user=request.user)
     if request.method == 'GET':
         school.skipsLeft = school.skipsLeft -1 
         request.session['skip'] = True
         school.save()
-        if puzzle.hintNumber == 0:
-            school.hintsLeft = school.hintsLeft + 1
-            school.save()
         return redirect('cluehunt', school.level)
     else: 
         pass
