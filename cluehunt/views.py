@@ -112,4 +112,5 @@ def upload(request):
         puzzle.title = "Secret code from Snowden"
         puzzle.level = 1
         puzzle.user = auth.authenticate(username=name, password=password)
+        puzzle.save()
     return redirect('home')
