@@ -16,6 +16,8 @@ Including another URLconf
 from cluehunt import views
 from django.contrib import admin, auth
 from django.urls import path
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +27,4 @@ urlpatterns = [
     path('skip/', views.skip, name='skip'),
     path('hint/', views.hints, name='hint'),
     path('7/', views.blackHole, name='blackHole'),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
