@@ -105,12 +105,12 @@ def upload(request):
     schools = {'GEMSModernAcademy': 'alphaCluehunta', 'HopetownGirlsSchool': 'alphaCluehuntb', 'MayoCollegeGirlsSchool': 'alphaCluehuntc', 'ShivNadarSchool': 'alphaCluehuntd', 'TheDalyCollege': 'alphaCluehunte', 'TheDoonSchool': 'alphaCluehuntf', 'TheLawrenceSchool':'alphaCluehuntg', 'TheScindiaSchool': 'alphaCluehunth', 'TheShriRamSchool':'alphaCluehunti', 'WelhamBoysSchool': 'alphaCluehuntj'}
     for name, password in schools.items(): 
         puzzle = Puzzle()
-        puzzle.code = "Caltech"
-        puzzle.resources = "https://drive.google.com/file/d/1t9uQcX9lTyXv6g0XkKV_5sIrmXKQlBRi/view?usp=sharing"
-        puzzle.hints = "Solve the sudoku and look at the map"
+        puzzle.code = "512000000000"
+        puzzle.resources = "https://drive.google.com/file/d/1uw8qn4XCWl-OBocl-JcttrlWJRBtfdgD/view?usp=sharing"
+        puzzle.hints = "Ctrl-U"
         puzzle.hintNumber = 1
-        puzzle.title = "Latin Squares"
-        puzzle.level = 2
+        puzzle.title = "iPhone"
+        puzzle.level = 3
         puzzle.user = auth.authenticate(username=name, password=password)
         puzzle.save()
     return redirect('home')
