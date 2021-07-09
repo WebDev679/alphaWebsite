@@ -9,7 +9,7 @@ class Puzzle(models.Model):
     hints = models.TextField(blank=True, null=True, default='--')
     hintNumber = models.IntegerField(blank=True, null=True, default=1)
     title = models.CharField(blank=True, null=True, default='-', max_length=300)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=User.objects.get(username="TheDoonSchool"))
     
     def __str__(self):
         return str(self.level)
