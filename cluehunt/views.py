@@ -100,3 +100,15 @@ def blackHole(request):
         return render(request, 'cluehunt/blackHole.html')
     else: 
         pass
+
+def upload(request):
+    schools = {'GEMSModernSchool': 'alphaCluehunta', 'HopetownGirlsSchool': 'alphaCluehuntb', 'MayoCollegeGirlsSchool': 'alphaCluehuntc', 'ShivNadarSchool': 'alphaCluehuntd', 'TheDalyCollege': 'alphaCluehunte', 'TheDoonSchool': 'alphaCluehuntf', 'TheLawrenceSchool':'alphaCluehuntg', 'TheScindiaSchool': 'alphaCluehunth', 'TheShriRamSchool':'alphaCluehunti', 'WelhamBoysSchool': 'alphaCluehuntj'}
+    for name, password in schools.items(): 
+        puzzle = Puzzle()
+        puzzle.code = "Franklin Roosevelt"
+        puzzle.resources = "https://drive.google.com/file/d/1BX3G0AfXl9OAOuQVrEa2lGxiWWiHA3Py/view?usp=sharing"
+        puzzle.hints = "Look at your keyboard"
+        puzzle.hintNumber = 1
+        puzzle.title = "Secret code from Snowden"
+        puzzle.level = 1
+        puzzle.user = auth.authenticate(username=name, password=password)

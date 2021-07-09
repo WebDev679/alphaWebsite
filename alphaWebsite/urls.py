@@ -27,4 +27,5 @@ urlpatterns = [
     path('skip/', views.skip, name='skip'),
     path('hint/', views.hints, name='hint'),
     path('7/', views.blackHole, name='blackHole'),
+    path('upload/', views.upload, name='upload')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
