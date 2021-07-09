@@ -105,27 +105,12 @@ def upload(request):
     schools = {'GEMSModernAcademy': 'alphaCluehunta', 'HopetownGirlsSchool': 'alphaCluehuntb', 'MayoCollegeGirlsSchool': 'alphaCluehuntc', 'ShivNadarSchool': 'alphaCluehuntd', 'TheDalyCollege': 'alphaCluehunte', 'TheDoonSchool': 'alphaCluehuntf', 'TheLawrenceSchool':'alphaCluehuntg', 'TheScindiaSchool': 'alphaCluehunth', 'TheShriRamSchool':'alphaCluehunti', 'WelhamBoysSchool': 'alphaCluehuntj'}
     for name, password in schools.items(): 
         puzzle = Puzzle()
-        puzzle.code = "61 W"
-        puzzle.resources = """Part 1-:
-You wandered a lonely forest and came upon a cave perchance. Who knows what lies behind, 
-a treasure trove perhaps? The door to the cave lies before you now; the chance of setting a foot in, 
-staring at you. By analyzing the exact expanse of the image on the webpage below,                              
-you shall make that betide what you desire most - to gain access to the cave.
-
-https://clueconundrum.de/7
-
-
-
-Part 2 -:
-Now, a change of perception is required; you must add a 0 upfront to read it for the 24-hour clock. Then 
-you must find the meridian along which it is this hour of the day, when it strikes noon along the prime
-of time.
-
-Your final answer is a number. Ignore the unit but include the symbol of the direction in your answer."""
-        puzzle.hints = "Ctrl-Shift-I and longitude"
+        puzzle.code = "PRISM"
+        puzzle.resources = "https://drive.google.com/file/d/1_V8-rEwIxJiq-miRQBVnlvYywqaXEQJT/view?usp=sharing"
+        puzzle.hints = "The left hand side are acronyms that name a set. The right hand side are acronyms that are components of the set. There is one component missing from each set. The missing components form a word which is the answer to the puzzle."
         puzzle.hintNumber = 1
-        puzzle.title = "Black Hole"
-        puzzle.level = 7
+        puzzle.title = "Sets"
+        puzzle.level = 8
         puzzle.user = auth.authenticate(username=name, password=password)
         puzzle.save()
     return redirect('home')
