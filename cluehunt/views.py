@@ -91,6 +91,9 @@ def skip(request):
         school.skipsLeft = school.skipsLeft -1 
         request.session['skip'] = True
         school.save()
+        if puzzle.hintNumber == 0:
+            school.hintsLeft = school.hintsLeft +1
+            school.save()
         return redirect('cluehunt', school.level)
     else: 
         pass
